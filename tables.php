@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <?php
+   // $temp1=$_POST["temp1"];
+	include("connect.php"); 	
+	
+	$link=Connection();
+//$add='12';
 
-    include("connect.php");  
-    
-    $link=Connection();
-   
-    $result=mysqli_query($link, "SELECT * FROM `Informacao_Recebido` ORDER BY `TimeStamp` DESC");
-   ?>
+//$query=mysqli_query($link,"INSERT INTO `tempLog` (`timeStamp`,`temperature`) 
+//	VALUES (current_timestamp(),'".$temp1."')"); 
+  
+$result=mysqli_query($link,"SET time_zone ='-03:00'"); 
+	$result=mysqli_query($link,"SELECT * FROM `tempLog` ORDER BY `timeStamp` DESC");
+	 mysqli_close($link);
+
+	 ?>
+
 
 <html lang="en">
 
@@ -357,24 +365,21 @@
                 <thead>
                       <tr>
                           <td align='center' width='160px'><b>&nbsp;Data e Hora&nbsp;</b></td>
-                          <td align='center' width='375px'><b>&nbsp;Mensagem&nbsp;</b></td>
+                          <td align='center' width='375px'><b>&nbsp;Tensão&nbsp;</b></td>
                           <tbody>
-                              <tr>
-                                <td>Rogerio</td>
-                                <td>Teste</td>
-                                                              </tr>
+                                 <?php 
+		  if($result!==FALSE){
+		     while($row =mysqli_fetch_array($result)) {
+		       printf("<tr><td align='center'> &nbsp;%s </td><td> &nbsp;%s&nbsp; </td></tr>",
+		           $row["timeStamp"], $row["tension"]);
+		     }
+		     mysqli_free_result($result);
+        //  mysqli_close($result);
+		  }
+      ?>
                          </tr>
                         </tbody>
-                             <?php 
-                           if($result!==FALSE){
-                              while($row = mysqli_fetch_array($result)) {
-                                 printf(" <tbody><tr><td align='center'> &nbsp;%s </td><td> &nbsp;%s&nbsp; </td></tr></tbody>", 
-                                    $row["TimeStamp"], $row["Texto"]);
-                              }
-                              mysqli_free_result($result);
-                            
-                           }
-                             ?>
+                                                  
                 </table>
               </div>
             </div>
@@ -390,7 +395,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Wabtec</span>
           </div>
         </div>
       </footer>
