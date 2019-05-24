@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -347,7 +346,13 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tensão chave normal</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">122</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+$url = file_get_contents('https://datacollectarduino.000webhostapp.com/tensaochavenormal.html');
+$exibir = $url;
+$retirar = array('Tensão chave normal:');
+$exibir = str_replace($retirar, '', $exibir);
+echo $exibir;
+?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -364,7 +369,13 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tensão chave reversa</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">215</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+$url = file_get_contents('https://datacollectarduino.000webhostapp.com/tensaochavereversa.html');
+$exibir = $url;
+$retirar = array('Tensão chave reversa:');
+$exibir = str_replace($retirar, '', $exibir);
+echo $exibir;
+?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -394,7 +405,13 @@
                     </div> -->
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tensão linha 1</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+$url = file_get_contents('https://datacollectarduino.000webhostapp.com/tensaolinha1.html');
+$exibir = $url;
+$retirar = array('Tensão linha 1:');
+$exibir = str_replace($retirar, '', $exibir);
+echo $exibir;
+?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -411,7 +428,13 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Tensão linha 2</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+$url = file_get_contents('https://datacollectarduino.000webhostapp.com/tensaolinha2.html');
+$exibir = $url;
+$retirar = array('Tensão linha 2:');
+$exibir = str_replace($retirar, '', $exibir);
+echo $exibir;
+?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
