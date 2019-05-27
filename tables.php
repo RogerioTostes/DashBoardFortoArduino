@@ -350,7 +350,13 @@ $result=mysqli_query($link,"SET time_zone ='-03:00'");
         <div class="container-fluid">
 
           <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-2 text-gray-800">Relatório de Dados</h1>
+          <form method="POST" action="generateReport.php">
+          <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Gerar Relatório</a> -->
+         <input type="submit" value="Gerar Relatório" id="Gerar Relatório" name="Gerar Relatório" href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+          </form>
+          </div>
                     <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <!-- <div class="card-header py-3">
